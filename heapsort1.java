@@ -19,6 +19,9 @@ public class Heap2 {
         heap2.display();
         heap2.add(5);
         heap2.display();
+        heap2.remove();
+        heap2.display();
+
 
     }
    int []heap=new int[10];
@@ -50,10 +53,11 @@ public class Heap2 {
     }
 int remove=0;
     public int remove(){
-        swap(0,heap.length-1);
+        swap(0,size-1);
+
         int remove =0;
-        for (int i = 0; i <heap.length ; i++) {
-               if (i==heap.length){
+        for (int i = 0; i <size ; i++) {
+               if (i==size-1){
                    remove=heap[i];
                    heap[i]=0;
                }
@@ -67,11 +71,11 @@ int remove=0;
         int rightChildIndex=2*parentIndex+2;
         int minIdx=parentIndex;
 
-        if (heap[leftChildIndex]<heap[minIdx]){
+        if (leftChildIndex<size &&heap[leftChildIndex]<heap[minIdx]){
             minIdx=leftChildIndex;
         }
 
-        if (heap[rightChildIndex]<heap[minIdx]){
+        if (rightChildIndex<size&&heap[rightChildIndex]<heap[minIdx]){
             minIdx=rightChildIndex;
         }
         if (minIdx!=parentIndex){
